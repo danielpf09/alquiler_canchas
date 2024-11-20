@@ -1,0 +1,107 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/baloncesto.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6; /* Opacidad de la imagen de fondo */
+    z-index: -1;
+}
+
+
+
+/* Contenedor de registro */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.register-card {
+    width: 350px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco semi-transparente */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.register-card h2 {
+    margin: 0 0 20px;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.register-btn {
+    background-color: #009688;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.register-btn:hover {
+    background-color: #009688;
+}
+
+.login-link {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.login-link a {
+    color: #FF6347;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    color: #FF4500;
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/Canchas.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../img/logo.jpg" alt="">
+        </div>
+        <div class="nav-links">
+            <a href="../index.html">Inicio</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+        <a href="../pages/login.html" class="admin-btn">Iniciar sesión</a>
+    </nav>
+
+
+    <!-- Contenedor principal para el cuadro y el formulario -->
+    <div class="content-container">
+        <!-- Cuadro promocional de alquiler -->
+        <div class="rental-box">
+            <div class="rental-image">
+                <img src="../img/Futbol.jpg" alt="Cancha de Fútbol" />
+                <div class="rental-overlay">
+                    <h2>¡Alquila nuestra cancha de fútbol y disfruta con tus amigos!</h2>
+                    <p>Nuestra cancha de fútbol sintética de <strong>[dimensiones]</strong> está ubicada en un entorno
+                        tranquilo y seguro. Perfecta para partidos, entrenamientos o simplemente pasar un buen rato.</p>
+                </div>
+            </div>
+            <div class="rental-details">
+                <h3>Requisitos para el alquiler:</h3>
+                <ul>
+                    <li><strong>Reserva previa:</strong> Se debe reservar con anticipación para asegurar disponibilidad.
+                    </li>
+                    <li><strong>Pago:</strong> Se debe realizar un pago correspondiente al alquiler, según la duración y
+                        servicios adicionales.</li>
+                    <li><strong>Identificación:</strong> Es necesario presentar una identificación oficial.</li>
+                    <li><strong>Número de personas:</strong> Límite máximo de <strong>[número]</strong> personas para
+                        garantizar la seguridad.</li>
+                    <li><strong>Edad:</strong> Edad mínima para alquilar la cancha si es requerido por el complejo.</li>
+                    <li><strong>Equipo deportivo:</strong> Los usuarios deben traer su propio equipo, a menos que haya
+                        opción de alquiler.</li>
+                    <li><strong>Cuidado de las instalaciones:</strong> Mantener la cancha en buenas condiciones después
+                        de su uso.</li>
+                    <li><strong>Normas de convivencia:</strong> Respetar las normas de convivencia del lugar.</li>
+                </ul>
+                <h3>Servicios adicionales:</h3>
+                <ul>
+                    <li>Iluminación</li>
+                    <li>Vestuarios</li>
+                    <li>Alquiler de equipo</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Formulario de reserva -->
+        <div class="reservation-form">
+            <h2>Reserva de Cancha</h2>
+            <form id="reservationForm">           
+               
+                <div class="form-group">
+                    <label for="date">Fecha:</label>
+                    <input type="date" id="date" name="date" required>
+                    <script>
+                        const dateInput = document.getElementById('date');
+                        
+                        // Establecer una fecha predeterminada en el formato YYYY-MM-DD
+                        const today = new Date();
+                        const yyyy = today.getFullYear();
+                        const mm = String(today.getMonth() + 1).padStart(2, '0'); // Mes con 2 dígitos
+                        const dd = String(today.getDate()).padStart(2, '0'); // Día con 2 dígitos
+                        
+                        // Establecer la fecha en el campo de entrada
+                        dateInput.value = `${yyyy}-${mm}-${dd}`;
+                    </script>
+                    
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Hora Inicio:</label>
+                    <input type="time" id="time_start" name="time" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Cuántas horas:</label>
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                    </select>
+                    
+                </div>
+
+                <button type="submit" class="btn">Reservar</button>
+            </form>
+        </div>
+    </div>
+    <!-- Sección de comentarios -->
+
+    <div class="review-container">
+        <h2>Reseñas de Canchas</h2>
+        <!-- Formulario para nuevo comentario -->
+        <form class="review-form" action="procesar_comentario.php" method="post">
+            <h3>Agrega tu comentario</h3>
+            <label for="comment">Comentario:</label>
+            <textarea id="comment" name="comment" rows="4" required></textarea>
+
+            <label for="rating">Calificación:</label>
+            <select id="rating" name="rating" required>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+            </select>
+
+            <button type="submit">Enviar Comentario</button>
+        </form>
+
+        <!-- Reseñas existentes -->
+        <div class="review-card">
+            <h3>Nombre de la Cancha</h3>
+            <p><strong>Usuario:</strong> Juan Pérez</p>
+            <p class="review-text">¡Excelente lugar! La cancha estaba en muy buen estado y el ambiente fue muy
+                agradable.</p>
+            <p class="review-rating">Calificación: ★★★★☆</p>
+        </div>
+
+        <div class="review-card">
+            <h3>Nombre de la Cancha</h3>
+            <p><strong>Usuario:</strong> María López</p>
+            <p class="review-text">La cancha estaba bien, aunque las instalaciones pueden mejorar. En general, tuvimos
+                una buena experiencia.</p>
+            <p class="review-rating">Calificación: ★★★☆☆</p>
+        </div>
+
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>Sobre Nosotros</h2>
+                <p>Somos la opción ideal para tus reservas. Ofrecemos calidad, rapidez y un excelente servicio al
+                    cliente.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Enlaces Rápidos</h2>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Reservas</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h2>Contacto</h2>
+                <p>Email: contacto@nuestraempresa.com</p>
+                <p>Teléfono: +123 456 7890</p>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Nuestra Empresa | Todos los derechos reservados.
+        </div>
+    </footer>
+</body>
+
+</html>

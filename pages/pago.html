@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Pago</title>
+    <link rel="stylesheet" href="../css/pago.css">
+</head>
+<body>
+    <div class="payment-container">
+        <h2>Información de Pago</h2>
+        
+        <form id="payment-form" class="payment-form" action="/procesar_pago" method="POST">
+            <!-- Información de contacto -->
+            <div class="form-group">
+                <label for="name">Nombre Completo:</label>                
+            </div>
+
+            <div class="form-group">
+                <label for="email">Correo Electrónico:</label>                
+            </div>                  
+           
+            <!-- Botón de pago -->
+            <button type="submit">Pagar Ahora</button>
+        </form>
+
+        <!-- Botón de descarga de factura en PDF -->
+        <button onclick="downloadInvoice()" class="download-button">Descargar Factura</button>
+    </div>
+
+    <!-- Importación de jsPDF desde un CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="../js/pago.js"></script>
+</body>
+</html>
