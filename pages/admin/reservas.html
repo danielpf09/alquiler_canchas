@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Reservas</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+}
+
+.dashboard-container {
+    display: flex;
+    width: 100%;
+}
+
+/* Barra lateral */
+.sidebar {
+    background-color: #333;
+    color: #fff;
+    width: 200px;
+    padding: 15px;
+    height: 100vh;
+    position: fixed;
+}
+
+.sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.sidebar ul li a:hover, .sidebar ul li a.active {
+    background-color: #575757;
+}
+
+/* Contenido principal */
+.main-content {
+    margin-left: 220px;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+header {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+/* Formulario de búsqueda */
+.reservation-search {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-search h2 {
+    margin-bottom: 10px;
+}
+
+.reservation-search label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.reservation-search input, .reservation-search button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.reservation-search button {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.reservation-search button:hover {
+    background-color: #0056b3;
+}
+
+/* Tabla de reservas */
+.reservation-list {
+    margin-top: 20px;
+}
+
+.reservation-list h2 {
+    margin-bottom: 10px;
+}
+
+.reservation-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.reservation-list th, .reservation-list td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.reservation-list th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.reservation-list .edit-btn, .reservation-list .delete-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.reservation-list .edit-btn {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.reservation-list .edit-btn:hover {
+    background-color: #e0a800;
+}
+
+.reservation-list .delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.reservation-list .delete-btn:hover {
+    background-color: #c82333;
+}
+
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Barra lateral -->
+        <aside class="sidebar">
+            <h2>Alquiler de Canchas</h2>
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#" class="active">Reservas</a></li>
+                    <li><a href="usuarios.html">Usuarios</a></li>                    
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <header>
+                <h1>Ver Reservas</h1>
+            </header>
+
+            <!-- Formulario de búsqueda -->
+            <section class="reservation-search">
+                <h2>Buscar Reservas</h2>
+                <form id="searchForm">
+                    <label for="date">Fecha:</label>
+                    <input type="date" id="date" name="date">
+
+                    <label for="user">Usuario:</label>
+                    <input type="text" id="user" name="user" placeholder="Nombre de usuario">
+
+                    <button type="submit">Buscar</button>
+                </form>
+            </section>
+
+            <!-- Tabla de reservas -->
+            <section class="reservation-list">
+                <h2>Lista de Reservas</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Usuario</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Cancha</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Daniel</td>
+                            <td>2024-11-24</td>
+                            <td>10:00 AM</td>
+                            <td>Cancha 1</td>
+                            <td>Confirmada</td>
+                            <td>
+                                <button class="edit-btn">Editar</button>
+                                <button class="delete-btn">Cancelar</button>
+                            </td>
+                        </tr>
+                        <!-- Más reservas aquí -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

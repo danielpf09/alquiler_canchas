@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios</title>
+    <link rel="stylesheet" href="#">
+    <style>
+    /* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+}
+
+.dashboard-container {
+    display: flex;
+    width: 100%;
+}
+
+/* Barra lateral */
+.sidebar {
+    background-color: #333;
+    color: #fff;
+    width: 200px; /* Ancho reducido */
+    padding: 15px; /* Ajuste del relleno */
+    height: 100vh;
+    position: fixed;
+}
+
+.sidebar h2 {
+    font-size: 20px; /* Tamaño de texto más pequeño */
+    margin-bottom: 15px;
+    text-align: center; /* Centrar el título */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0; /* Espaciado más compacto */
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px; /* Tamaño de texto más pequeño */
+    display: block;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-align: center; /* Centrar texto en la barra lateral */
+}
+
+.sidebar ul li a:hover, .sidebar ul li a.active {
+    background-color: #575757;
+}
+
+/* Contenido principal */
+.main-content {
+    margin-left: 220px; 
+    padding: 20px;
+    flex-grow: 1;
+}
+
+header {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+/* Gestión de usuarios */
+.user-management {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Formulario */
+.user-form {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 15px;
+    width: 100%;
+    max-width: 350px; /* Ajuste de ancho del formulario */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-form h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.user-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.user-form input, .user-form select, .user-form button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.user-form button {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.user-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Tabla */
+.user-table {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.user-table h2 {
+    margin-bottom: 15px;
+}
+
+.user-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.user-table th, .user-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.user-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.user-table .edit-btn, .user-table .delete-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.user-table .edit-btn {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.user-table .edit-btn:hover {
+    background-color: #e0a800;
+}
+
+.user-table .delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.user-table .delete-btn:hover {
+    background-color: #c82333;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Barra lateral -->
+        <aside class="sidebar">
+            <h2>Alquiler de Canchas</h2>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html">Inicio</a></li>
+                    <li><a href="reservas.html">Reservas</a></li>
+                    <li><a href="#" class="active">Usuarios</a></li>
+                    
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <header>
+                <h1>Gestión de Usuarios</h1>
+            </header>
+
+            <section class="user-management">
+                <!-- Formulario para agregar o editar usuarios -->
+                <div class="user-form">
+                    <h2>Crear/Editar Usuario</h2>
+                    <form id="userForm">
+                        <label for="username">Nombre de Usuario:</label>
+                        <input type="text" id="username" name="username" required>
+
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="role">Rol:</label>
+                        <select id="role" name="role" required>
+                            <option value="admin">Administrador</option>
+                            <option value="user">Usuario</option>
+                        </select>
+
+                        <button type="submit">Guardar Usuario</button>
+                    </form>
+                </div>
+
+                <!-- Tabla de usuarios -->
+                <div class="user-table">
+                    <h2>Usuarios Registrados</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Rol</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Daniel</td>
+                                <td>daniel@example.com</td>
+                                <td>Administrador</td>
+                                <td>
+                                    <button class="edit-btn">Editar</button>
+                                    <button class="delete-btn">Eliminar</button>
+                                </td>
+                            </tr>
+                            <!-- Más usuarios aquí -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

@@ -10,7 +10,6 @@
 
 <body>
     <div class="background-overlay"></div>
-
     <!-- Contenedor del Registro -->
     <div class="register-container">
         <div class="register-card">
@@ -46,8 +45,7 @@
                 apellido: document.getElementById('lastname').value
             };
 
-            try {
-                // Realizar la solicitud POST para guardar los datos
+            try {                
                 const response = await fetch('https://reservascanhasback.onrender.com/users/userRegister', {
                     method: 'POST',
                     headers: {
@@ -55,8 +53,7 @@
                     },
                     body: JSON.stringify(formData)
                 });
-
-                // Mostrar mensaje según el resultado
+                
                 if (response) {
                     alert('¡Registro exitoso! Los datos se han guardado correctamente.');
                 } else {
